@@ -9,14 +9,17 @@ import com.zebrunner.carina.api.http.HttpMethodType;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.config.Configuration;
 
-@Endpoint(url = "https://dummyjson.com/products/${index}", methodType = HttpMethodType.GET)
+@Endpoint(url = "${base_url}/products/${index}", methodType = HttpMethodType.DELETE)
+@RequestTemplatePath(path= "api/products/_delete/rq.json")
+@ResponseTemplatePath(path = "api/products/_delete/rq.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
-public class GetProduct extends AbstractApiMethodV2 {
-    public GetProduct() {
+
+public class DeleteProduct extends AbstractApiMethodV2 {
+    public DeleteProduct(){
         replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
     }
     public void setIndex(){
-        int index = 2;
+        int index =1;
         replaceUrlPlaceholder("index", String.valueOf(index));
     }
 }

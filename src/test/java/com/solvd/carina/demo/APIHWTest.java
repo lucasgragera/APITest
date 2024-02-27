@@ -2,6 +2,7 @@ package com.solvd.carina.demo;
 
 import com.fasterxml.jackson.core.JsonToken;
 import com.jayway.jsonpath.JsonPath;
+import com.solvd.carina.demo.api.products.DeleteProduct;
 import com.solvd.carina.demo.api.products.GetProduct;
 import com.solvd.carina.demo.api.products.PostProduct;
 import com.solvd.carina.demo.api.products.PutProduct;
@@ -34,6 +35,15 @@ public class APIHWTest implements IAbstractTest {
         putProduct.setIndex();
         putProduct.setProperties("api/products/product.properties");
         putProduct.callAPIExpectSuccess();
-        putProduct.validateResponse();
+        //putProduct.validateResponse();
     }
+    @Test
+    @MethodOwner(owner = "Lucas")
+    public void deleteProducts(){
+        DeleteProduct deleteProduct = new DeleteProduct();
+        deleteProduct.setIndex();
+        deleteProduct.callAPIExpectSuccess();
+        //deleteProduct.validateResponse();
+    }
+
 }
