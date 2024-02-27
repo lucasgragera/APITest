@@ -43,7 +43,7 @@ public class APIHWTest implements IAbstractTest {
         DeleteProduct deleteProduct = new DeleteProduct();
         deleteProduct.setIndex();
         deleteProduct.callAPIExpectSuccess();
-        //deleteProduct.validateResponse();
+        deleteProduct.validateResponse();
     }
 
 }
